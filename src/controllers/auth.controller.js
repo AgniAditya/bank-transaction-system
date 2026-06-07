@@ -45,7 +45,7 @@ async function registerUser(req, res) {
       message: "user register successfully",
     });
 
-    await emailService(newUser.email, newUser.name);
+    await emailService.sendRegistrationEmail(newUser.email, newUser.name);
   } catch (error) {
     return res.status(500).json({
       message: error.message,
